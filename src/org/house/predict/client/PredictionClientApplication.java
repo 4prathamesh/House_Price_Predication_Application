@@ -3,6 +3,7 @@ import java.util.*;
 
 import org.house.predict.model.AreaMasterModel;
 import org.house.predict.model.CityMasterModel;
+import org.house.predict.service.AminityMasterService;
 import org.house.predict.service.AreaMasterService;
 import org.house.predict.service.AreaSquerFeetService;
 import org.house.predict.service.CityMasterService;
@@ -13,6 +14,8 @@ public class PredictionClientApplication {
 		CityMasterService cms= new CityMasterService();
 		AreaMasterService  ams= new AreaMasterService();
 		AreaSquerFeetService asfs= new AreaSquerFeetService();
+		AminityMasterService amims= new AminityMasterService();
+		
 		List<CityMasterModel> list= new ArrayList<CityMasterModel>();
 		boolean flag=false;
 		do {
@@ -156,11 +159,24 @@ public class PredictionClientApplication {
 				b=asfs.setSquerFeet(sf,sfid);
 				
 				break;
-			case 8:
+			case 8:  // Enter the Aminity
 				
-				
+				System.out.println("Enter the Aminity");
+				String aminityName=sc.nextLine();
+				if(amims.setAminity(aminityName))
+				{
+					System.out.println("Aminity is add");
+				}
+				else
+				{
+					System.out.println("Aminity is not add");
+				}
 				
 				break;
+			case 9:
+				
+				break;
+				
 			case 12:
 				flag=true;
 				break;
