@@ -24,6 +24,8 @@ public class PredictionClientApplication {
 			System.out.println("4. Add New area ");
 			System.out.println("5. City wise Area count");
 			System.out.println("6. City wise Area names ");
+			System.out.println("7. Enter the Squer feet");
+			System.out.println("8. Enter the Aminity");
 			System.out.println("12. Exit App!!!!!!");
 			
 			System.out.println("enter the choice");
@@ -154,7 +156,11 @@ public class PredictionClientApplication {
 				b=asfs.setSquerFeet(sf,sfid);
 				
 				break;
+			case 8:
 				
+				
+				
+				break;
 			case 12:
 				flag=true;
 				break;
