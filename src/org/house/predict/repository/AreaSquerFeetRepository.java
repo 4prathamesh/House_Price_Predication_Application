@@ -38,4 +38,26 @@ public class AreaSquerFeetRepository extends DBHelper {
 		}
 		return -1;
 	}
+	public int getSquerFeetIdBySq(float sq) {
+		// TODO Auto-generated method stub
+		try
+		{
+			stmt=conn.prepareStatement("select sqid from areasquerfeet where sqarea=?");
+			stmt.setFloat(1, sq);
+			rs=stmt.executeQuery();
+			if(rs.next())
+			{
+				return rs.getInt(1);
+			}
+			else {
+				return -1;
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Error for get id by using squer feet"+ex);
+			return -1;
+		}
+		
+	}
 }

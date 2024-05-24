@@ -15,4 +15,9 @@ public class AreaSquerFeetService {
 		id++;
 		return id;
 	}
+
+	public int getSquerFeetidBySq(float sq) {
+		// TODO Auto-generated method stub
+		return asfrepo.getSquerFeetIdBySq(sq);
+	}
 }

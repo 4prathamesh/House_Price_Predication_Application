@@ -29,6 +29,7 @@ public class PredictionClientApplication {
 			System.out.println("6. City wise Area names ");
 			System.out.println("7. Enter the Squer feet");
 			System.out.println("8. Enter the Aminity");
+			System.out.println("9. Enter the Property");
 			System.out.println("12. Exit App!!!!!!");
 			
 			System.out.println("enter the choice");
@@ -160,7 +161,6 @@ public class PredictionClientApplication {
 				
 				break;
 			case 8:  // Enter the Aminity
-				
 				System.out.println("Enter the Aminity");
 				String aminityName=sc.nextLine();
 				if(amims.setAminity(aminityName))
@@ -171,9 +171,28 @@ public class PredictionClientApplication {
 				{
 					System.out.println("Aminity is not add");
 				}
-				
 				break;
-			case 9:
+			case 9:  // Add Property 
+				
+				System.out.println("Enter the address");
+				String address=sc.nextLine();
+				System.out.println("Enter the squer feet");
+				float sq=sc.nextFloat();
+				sfid=asfs.getSquerFeetidBySq(sq);
+				if(sfid<0)
+				{
+					System.out.println("Squer feet is not present");
+				}
+				System.out.println("Enter the Area name ");
+				String areaName=sc.nextLine();
+				System.out.println("Enter the city name");
+				cityName=sc.nextLine();
+				System.out.println("enter the No of badRooom");
+				int nbed=sc.nextInt();
+				System.out.println("Enter the No of bathRoom");
+				int bath=sc.nextInt();
+				
+				
 				
 				break;
 				
