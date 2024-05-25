@@ -44,4 +44,10 @@ public class CityMasterService {
 	{
 		return cityRepo.getCityWiseAreaName();
 	}
+
+//case 9 Gatting city id by name
+	public int getCityIdByName(String cityName) {
+		// TODO Auto-generated method stub
+		return cityRepo.getCityIdByName(cityName);
+	}
 }

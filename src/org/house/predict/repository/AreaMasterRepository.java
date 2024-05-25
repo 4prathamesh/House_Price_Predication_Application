@@ -73,5 +73,23 @@ public class AreaMasterRepository extends DBHelper{
 		}
 
 	}
+	public int getAreaIdByName(String areaName) {
+		// TODO Auto-generated method stub
+		try {
+			stmt=conn.prepareStatement("select areaid from cityarea where areaname=?");
+			stmt.setString(1, areaName);
+			rs=stmt.executeQuery();
+			if(rs.next())
+			{
+				return rs.getInt(1);
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println("error is "+ex);
+		}
+		return -1;
+	}
+	
 	
 }

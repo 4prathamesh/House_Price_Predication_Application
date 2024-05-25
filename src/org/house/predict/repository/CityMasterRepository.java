@@ -142,4 +142,24 @@ public class CityMasterRepository extends DBHelper {
 		
 	}
 
+//	case 9 Gatting city id by name 
+	public int getCityIdByName(String cityName) {
+		// TODO Auto-generated method stub
+		try
+		{
+			stmt=conn.prepareStatement("select cityid from citymaster where cityname=?");
+			stmt.setString(1, cityName);
+			rs=stmt.executeQuery();
+			if(rs.next())
+			{
+				return rs.getInt(1);
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Error in Gatting  city by name "+ex);
+		}
+		return -1;
+	}
+
 }

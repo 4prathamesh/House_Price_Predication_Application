@@ -3,10 +3,12 @@ import java.util.*;
 
 import org.house.predict.model.AreaMasterModel;
 import org.house.predict.model.CityMasterModel;
+import org.house.predict.model.PropertyMasterModel;
 import org.house.predict.service.AminityMasterService;
 import org.house.predict.service.AreaMasterService;
 import org.house.predict.service.AreaSquerFeetService;
 import org.house.predict.service.CityMasterService;
+import org.house.predict.service.PropertyMasterService;
 public class PredictionClientApplication {
 
 	public static void main(String[] args) {
@@ -15,6 +17,7 @@ public class PredictionClientApplication {
 		AreaMasterService  ams= new AreaMasterService();
 		AreaSquerFeetService asfs= new AreaSquerFeetService();
 		AminityMasterService amims= new AminityMasterService();
+		PropertyMasterService ppms= new PropertyMasterService();
 		
 		List<CityMasterModel> list= new ArrayList<CityMasterModel>();
 		boolean flag=false;
@@ -178,6 +181,7 @@ public class PredictionClientApplication {
 				String address=sc.nextLine();
 				System.out.println("Enter the squer feet");
 				float sq=sc.nextFloat();
+				sc.nextLine();
 				sfid=asfs.getSquerFeetidBySq(sq);
 				if(sfid<0)
 				{
@@ -185,13 +189,35 @@ public class PredictionClientApplication {
 				}
 				System.out.println("Enter the Area name ");
 				String areaName=sc.nextLine();
+				int areaid=ams.getAreaIdByName(areaName);
+				if(areaid<0)
+				{
+					System.out.println("Area name is not present");
+				}
 				System.out.println("Enter the city name");
 				cityName=sc.nextLine();
+				cityid=cms.getCityIdByName(cityName);
+				if(cityid<0)
+				{
+					System.out.println("city name is not present");
+				}
 				System.out.println("enter the No of badRooom");
 				int nbed=sc.nextInt();
 				System.out.println("Enter the No of bathRoom");
 				int bath=sc.nextInt();
+				sc.nextLine();
 				
+				PropertyMasterModel pmm= new PropertyMasterModel(address,sfid,areaid,cityid,nbed,bath);
+				
+				b=ppms.addProperty(pmm);
+				if(b)
+				{
+					System.out.println("Property is add ");
+				}
+				else
+				{
+					System.out.println("property is not add");
+				}
 				
 				
 				break;

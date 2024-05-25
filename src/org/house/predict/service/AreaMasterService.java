@@ -20,4 +20,9 @@ public class AreaMasterService {
 		return amr.isAddArea(amodel);
 	}
 
+	public int getAreaIdByName(String areaName) {
+		// TODO Auto-generated method stub
+		return amr.getAreaIdByName(areaName);
+	}
+
 }
