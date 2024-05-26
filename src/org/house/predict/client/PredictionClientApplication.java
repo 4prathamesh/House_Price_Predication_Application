@@ -1,6 +1,7 @@
 package org.house.predict.client;
 import java.util.*;
 
+import org.house.predict.model.AminityMasterModel;
 import org.house.predict.model.AreaMasterModel;
 import org.house.predict.model.CityMasterModel;
 import org.house.predict.model.PropertyMasterModel;
@@ -33,6 +34,7 @@ public class PredictionClientApplication {
 			System.out.println("7. Enter the Squer feet");
 			System.out.println("8. Enter the Aminity");
 			System.out.println("9. Enter the Property");
+			System.out.println("10. ");
 			System.out.println("12. Exit App!!!!!!");
 			
 			System.out.println("enter the choice");
@@ -201,13 +203,32 @@ public class PredictionClientApplication {
 				{
 					System.out.println("city name is not present");
 				}
-				System.out.println("enter the No of badRooom");
+				System.out.println("enter the No of bad");
 				int nbed=sc.nextInt();
 				System.out.println("Enter the No of bathRoom");
 				int bath=sc.nextInt();
 				sc.nextLine();
 				
-				PropertyMasterModel pmm= new PropertyMasterModel(address,sfid,areaid,cityid,nbed,bath);
+				List<AminityMasterModel> al= new ArrayList<AminityMasterModel>();
+				do
+				{
+					System.out.println("Enter the Aminity ");
+					String amiName=sc.nextLine();
+					AminityMasterModel amiMM= new AminityMasterModel();
+					amiMM.setAmName(amiName);
+					al.add(amiMM);
+					System.out.println("you want to add more aminity yes or not");
+					String ch=sc.nextLine();
+					if(ch.equals("not"))
+					{
+						break;
+					}
+				}while(true);
+					
+				
+				
+				
+				PropertyMasterModel pmm= new PropertyMasterModel(address,sfid,areaid,cityid,nbed,bath,al);
 				
 				b=ppms.addProperty(pmm);
 				if(b)

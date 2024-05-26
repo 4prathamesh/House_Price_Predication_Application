@@ -1,5 +1,7 @@
 package org.house.predict.model;
 
+import java.util.List;
+
 public class PropertyMasterModel {
 	private int id ;
 	private String address;
@@ -8,6 +10,16 @@ public class PropertyMasterModel {
 	private int cityid;
 	private int nbed;
 	private int nbath;
+	private List<AminityMasterModel> amList;
+	
+	public List<AminityMasterModel> getAmList() {
+		return amList;
+	}
+	public void setAmList(List<AminityMasterModel> amList) {
+		this.amList = amList;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -55,7 +67,7 @@ public class PropertyMasterModel {
 	{
 		
 	}
-	public PropertyMasterModel(String address,int sqid,int areaid,int cityid,int nbed,int nbath)
+	public PropertyMasterModel(String address,int sqid,int areaid,int cityid,int nbed,int nbath,List<AminityMasterModel> amList)
 	{
 		this.address = address;
 		this.sqid=sqid;
@@ -63,5 +75,6 @@ public class PropertyMasterModel {
 		this.cityid=cityid;
 		this.nbed=nbed;
 		this.nbath=nbath;
+		this.amList=amList;
 	}
 }
