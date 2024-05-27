@@ -10,6 +10,13 @@ public class PropertyMasterModel {
 	private int cityid;
 	private int nbed;
 	private int nbath;
+	private DealModel dm;
+	public DealModel getDm() {
+		return dm;
+	}
+	public void setDm(DealModel dm) {
+		this.dm = dm;
+	}
 	private List<AminityMasterModel> amList;
 	
 	public List<AminityMasterModel> getAmList() {

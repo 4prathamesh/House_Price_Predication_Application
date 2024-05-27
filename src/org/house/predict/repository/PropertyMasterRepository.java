@@ -1,9 +1,11 @@
 package org.house.predict.repository;
-
+import java.sql.Date;
+import java.util.*;
 import java.util.List;
 
 import org.house.predict.config.DBHelper;
 import org.house.predict.model.AminityMasterModel;
+import org.house.predict.model.DealModel;
 import org.house.predict.model.PropertyMasterModel;
 
 public class PropertyMasterRepository extends DBHelper{
@@ -29,23 +31,36 @@ public class PropertyMasterRepository extends DBHelper{
 				pid=rs.getInt(1);
 			}
 			// data add in propertymaster and aminity join
-			List<AminityMasterModel> al=pmm.getAmList();
-			for(int i=0;i<al.size();i++)
+			
+			if(value>0)
 			{
-				AminityMasterModel amm=al.get(i);
-				String amiName=amm.getAmName();
-				stmt=conn.prepareStatement("select amid from aminitymaster where aminities=?");
-				stmt.setString(1, amiName);
-				rs=stmt.executeQuery();
-				if(rs.next())
+				List<AminityMasterModel> al=pmm.getAmList();
+				for(int i=0;i<al.size();i++)
 				{
-					int amid=rs.getInt(1);
-					stmt=conn.prepareStatement("insert into propertyaminityjoin values (?,?)");
-					stmt.setInt(1, pid);
-					stmt.setInt(2, amid);
-					stmt.executeUpdate();
+					AminityMasterModel amm=al.get(i);
+					String amiName=amm.getAmName();
+					stmt=conn.prepareStatement("select amid from aminitymaster where aminities=?");
+					stmt.setString(1, amiName);
+					rs=stmt.executeQuery();
+					if(rs.next())
+					{
+						int amid=rs.getInt(1);
+						stmt=conn.prepareStatement("insert into propertyaminityjoin values (?,?)");
+						stmt.setInt(1, pid);
+						stmt.setInt(2, amid);
+						value=stmt.executeUpdate();
+					}
 				}
 			}
+			if(value>0)
+			{
+				DealModel dl=pmm.getDm();
+				stmt=conn.prepareStatement("insert into propertyhistoriaclprices values ('0' , ? ,?,(select curDate()))");
+				stmt.setInt(1, pid);
+				stmt.setLong(2, dl.getPrice());
+				value=stmt.executeUpdate();
+			}
+			
 			return value>0 ? true: false;
 		}
 		catch(Exception ex)
@@ -54,5 +69,6 @@ public class PropertyMasterRepository extends DBHelper{
 		}
 		return false;
 	}
+	
 
 }

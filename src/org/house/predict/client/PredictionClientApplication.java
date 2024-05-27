@@ -4,6 +4,7 @@ import java.util.*;
 import org.house.predict.model.AminityMasterModel;
 import org.house.predict.model.AreaMasterModel;
 import org.house.predict.model.CityMasterModel;
+import org.house.predict.model.DealModel;
 import org.house.predict.model.PropertyMasterModel;
 import org.house.predict.service.AminityMasterService;
 import org.house.predict.service.AreaMasterService;
@@ -225,11 +226,21 @@ public class PredictionClientApplication {
 					}
 				}while(true);
 					
+				// add data in histrocal data table 
 				
-				
-				
+				System.out.println("Enter the Price ");
+				long price = sc.nextLong();
+				sc.nextLine();
+//				System.out.println("Enter the Register year , month and date");
+//				int year=sc.nextInt();
+//				int month=sc.nextInt();
+//				int date=sc.nextInt();
+//				Date dateR= new Date(year,month,date);
+				DealModel dl= new DealModel();
+				dl.setPrice(price);
+//				dl.setRdate(dateR);
 				PropertyMasterModel pmm= new PropertyMasterModel(address,sfid,areaid,cityid,nbed,bath,al);
-				
+				pmm.setDm(dl);
 				b=ppms.addProperty(pmm);
 				if(b)
 				{
