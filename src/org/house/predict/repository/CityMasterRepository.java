@@ -9,9 +9,8 @@ import java.sql.*;
 
 public class CityMasterRepository extends DBHelper {
 
-	public boolean isAddNewCity(CityMasterModel model) {
+	public boolean isAddNewCity(CityMasterModel model){
 		try {
-
 			stmt = conn.prepareStatement("insert into citymaster values('0',?)");
 			stmt.setString(1, model.getCityName());
 			int value = stmt.executeUpdate();

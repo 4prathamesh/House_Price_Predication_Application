@@ -9,7 +9,7 @@ public class PathHelper {
 	public static String path=(f.getAbsolutePath().substring(0, f.getAbsolutePath().length()-1))+"src\\";
 	static
 	{
-		
+
 		String path1=path+"db.properties";
 		try
 		{

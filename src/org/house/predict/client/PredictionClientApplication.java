@@ -35,7 +35,7 @@ public class PredictionClientApplication {
 			System.out.println("7. Enter the Squer feet");
 			System.out.println("8. Enter the Aminity");
 			System.out.println("9. Enter the Property");
-			System.out.println("10. ");
+			System.out.println("10. Find areawise property count");
 			System.out.println("12. Exit App!!!!!!");
 			
 			System.out.println("enter the choice");

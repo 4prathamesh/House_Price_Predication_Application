@@ -8,5 +8,4 @@ public class DBHelper {
 	protected PreparedStatement stmt = DBConfig.getStatement();
 	protected ResultSet rs = DBConfig.getResultSet();
 	protected Statement st = DBConfig.getStmt();
-
 }
