@@ -4,6 +4,7 @@ import org.house.predict.config.DBHelper;
 import org.house.predict.model.AreaMasterModel;
 import java.sql.*;
 
+
 public class AreaMasterRepository extends DBHelper{
 	
 //		public int addAreaofCity(String areaName)

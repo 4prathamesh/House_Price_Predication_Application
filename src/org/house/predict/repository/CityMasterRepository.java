@@ -22,7 +22,8 @@ public class CityMasterRepository extends DBHelper {
 	}
 
 	// case number 2 methode
-	public List<CityMasterModel> getAllCities() {
+	public List<CityMasterModel> getAllCities() 
+	{
 		List<CityMasterModel> list = new ArrayList<CityMasterModel>();
 		try {
 			stmt = conn.prepareStatement("select *from citymaster");
@@ -62,7 +63,6 @@ public class CityMasterRepository extends DBHelper {
 			return false;
 		}
 	}
-
 	// case 4:
 	public int getCityId(String cname) {
 		try {
@@ -80,7 +80,7 @@ public class CityMasterRepository extends DBHelper {
 			return -1;
 		}
 	}
-
+	
 	// case 5:
 	private List<Object[]> cityWiseAreaCount = null;
 

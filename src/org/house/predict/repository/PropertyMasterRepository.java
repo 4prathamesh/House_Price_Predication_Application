@@ -2,7 +2,6 @@ package org.house.predict.repository;
 import java.sql.Date;
 import java.util.*;
 import java.util.List;
-
 import org.house.predict.config.DBHelper;
 import org.house.predict.model.AminityMasterModel;
 import org.house.predict.model.DealModel;
